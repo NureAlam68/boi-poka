@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import './NavBar.css'
 
 const NavBar = () => {
   const links = (
@@ -11,12 +12,12 @@ const NavBar = () => {
         <NavLink to="dashboard">Listed Books</NavLink>
       </li>
       <li>
-        <NavLink>Pages to Read</NavLink>
+        <NavLink to="back">Pages to Read</NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 py-[48px]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,10 +46,11 @@ const NavBar = () => {
         <a className="btn btn-ghost text-[28px] font-bold">Book Vibe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="px-1 flex gap-4 text-[18px] text-[#131313CC]">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="bg-[#23BE0A] px-[28px] py-[18px] rounded-[8px] mr-4 text-[18px] font-semibold text-white">Sign In</a>
+        <a className="bg-[#59C6D2] px-[28px] py-[18px] rounded-[8px] text-[18px] font-semibold text-white">Sign Up</a>
       </div>
     </div>
   );

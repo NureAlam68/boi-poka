@@ -1,0 +1,7 @@
+li a.active {
+    padding: 14px 20px 14px 20px;
+    border-radius: 8px;
+    border: 1px solid rgb(35, 190, 10);
+    color: rgb(35, 190, 10);
+    font-weight: 600;
+}
