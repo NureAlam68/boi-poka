@@ -17,8 +17,8 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 py-[48px]">
-      <div className="navbar-start">
+    <div className="flex items-center justify-between py-[52px]">
+      <div className="">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -43,12 +43,12 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-[28px] font-bold">Book Vibe</a>
+        <a className="text-[28px] font-bold">Book Vibe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="px-1 flex gap-4 text-[18px] text-[#131313CC]">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="">
         <a className="bg-[#23BE0A] px-[28px] py-[18px] rounded-[8px] mr-4 text-[18px] font-semibold text-white">Sign In</a>
         <a className="bg-[#59C6D2] px-[28px] py-[18px] rounded-[8px] text-[18px] font-semibold text-white">Sign Up</a>
       </div>
