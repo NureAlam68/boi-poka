@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { getStoredReadList } from "../../utility/addToDb";
-import Book from "../Book/Book";
+import ReadList from "../ReadList/ReadList";
 
 const ListedBooks = () => {
 
@@ -24,7 +24,12 @@ const ListedBooks = () => {
 
   return (
     <div>
-      <h1 className="text-5xl my-8">Listed books</h1>
+      <h1 className="text-[28px] font-bold text-center bg-[#1313130D] py-[34px] rounded-[16px]">Books</h1>
+      <div className="flex justify-center mt-8 mb-[56px] text-white text-[18px]">
+      <button className="py-[14px] px-5 rounded-[8px] bg-[#23BE0A]">
+        Sort By <i class="fa-solid fa-sort-down"></i>
+      </button>
+      </div>
       <Tabs>
         <TabList>
           <Tab>Read Books</Tab>
@@ -32,9 +37,9 @@ const ListedBooks = () => {
         </TabList>
 
         <TabPanel>
-          <div>
+          <div className="mt-8 mb-[100px] grid grid-cols-1 gap-6">
             {
-                readList.map(book => <Book key={book.bookId} book={book}></Book>)
+                readList.map(book => <ReadList key={book.bookId} book={book}></ReadList>)
             }
           </div>
         </TabPanel>
