@@ -53,6 +53,22 @@ const ListedBooks = () => {
       );
       setReadList(sortedReadList);
     }
+    if (sortType === "Rating") {
+      const sortedWishList = [...wishList].sort((a, b) => b.rating - a.rating);
+      setWishList(sortedWishList);
+    }
+    if (sortType === "Number of pages") {
+      const sortedWishList = [...wishList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
+      setWishList(sortedWishList);
+    }
+    if (sortType === "Publishing year") {
+      const sortedWishList = [...wishList].sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+      setWishList(sortedWishList);
+    }
   };
 
   return (
