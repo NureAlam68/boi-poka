@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { getStoredReadList } from "../../utility/addToDb";
+import { getStoredReadList, getStoredWishList } from "../../utility/addToDb";
 import ReadList from "../ReadList/ReadList";
 
 const ListedBooks = () => {
@@ -10,6 +10,7 @@ const ListedBooks = () => {
     // ideally we will directly get the read book list from the database
     const allBooks = useLoaderData();
     const [readList, setReadList] = useState([]);
+    const [wishList, setWishList] = useState([]);
 
     useEffect(()=> {
         const storedReadList = getStoredReadList(); // localStorage e store kora array with id
@@ -19,6 +20,14 @@ const ListedBooks = () => {
         const readBookList = allBooks.filter(book => storedReadListInt.includes(book.bookId))  // all books thake readBook list 
 
         setReadList(readBookList)
+    }, [])
+
+    useEffect(()=> {
+      const storedWishList = getStoredWishList();
+      const storedWishListInt = storedWishList.map(id => parseInt(id));
+      const wishBookList = allBooks.filter(book => storedWishListInt.includes(book.bookId))
+
+      setWishList(wishBookList)
     }, [])
 
 
@@ -44,7 +53,11 @@ const ListedBooks = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <div className="mt-8 mb-[100px] grid grid-cols-1 gap-6">
+            {
+              wishList.map(book => <ReadList key={book.bookId} book={book}></ReadList>)
+            }
+          </div>
         </TabPanel>
       </Tabs>
     </div>
